@@ -5,11 +5,21 @@ const supertest = require('supertest');
 const mockRequest = supertest(server);
 
 describe('web server', () => {
-    it('should respond with a 404', () => {
-      return mockRequest
-        .get('/bananas')
-        .then(results => {
-          expect(results.status).toBe(404)
-        }).catch(console.error);
-    })
-})
+  it('should respond with a 404', () => {
+    return mockRequest
+      .get('/bananas')
+      .then(results => {
+        expect(results.status).toBe(404);
+      }).catch(console.error);
+  });
+});
+
+describe('this is a bad method', () => {
+  it('should respond with a 404', () => {
+    return mockRequest
+      .post('/person')
+      .then(results => {
+        expect(results.status).toBe(404);
+      }).catch(console.error);
+  });
+});
